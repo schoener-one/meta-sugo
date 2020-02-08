@@ -1,0 +1,26 @@
+diff --git a/azmq/detail/actor_service.hpp b/azmq/detail/actor_service.hpp
+index 0f2204b..8d2c2fb 100644
+--- a/azmq/detail/actor_service.hpp
++++ b/azmq/detail/actor_service.hpp
+@@ -24,7 +24,7 @@
+ #include <boost/asio/signal_set.hpp>
+ #include <boost/container/flat_map.hpp>
+ 
+-#if BOOST_VERSION < 10700
++#if BOOST_VERSION < 107000
+ #   define AZMQ_DETAIL_USE_IO_SERVICE 1
+ #endif
+ 
+diff --git a/azmq/detail/socket_service.hpp b/azmq/detail/socket_service.hpp
+index 68aa3ac..1992804 100644
+--- a/azmq/detail/socket_service.hpp
++++ b/azmq/detail/socket_service.hpp
+@@ -32,7 +32,7 @@
+ #include <boost/container/flat_map.hpp>
+ #include <boost/thread/mutex.hpp>
+ 
+-#if BOOST_VERSION < 10700
++#if BOOST_VERSION < 107000
+ #   define AZMQ_DETAIL_USE_IO_SERVICE 1
+ #else
+ #   include <boost/asio/post.hpp>

@@ -1,0 +1,15 @@
+[Match]
+Name=eth*
+
+[Network]
+DHCP=yes
+
+[DHCP]
+ClientIdentifier=mac
+UseDNS=true
+UseNTP=true
+SendHostname=true
+UseHostname=true
+UseDomains=true
+UseRoutes=true
+DUIDType=link-layer
