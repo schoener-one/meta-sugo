@@ -23,7 +23,6 @@ do_install() {
 
 FILES_${PN} = "\
     ${bindir} \
-    ${sysconfdir} \
-    ${systemd_unitdir}/system \
+    ${systemd_system_unitdir} \
 "
 REQUIRED_DISTRO_FEATURES = "systemd"
