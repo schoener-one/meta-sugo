@@ -28,6 +28,7 @@ IMAGE_INSTALL_append = " \
     protobuf \
     jsonrpcpp \
     azmq \
+    moco-service \
 "
 KERNEL_MODULE_AUTOLOAD += "i2c-dev"
 KERNEL_DEVICETREE += " overlays/moco-gpio.dtbo"
