@@ -1,10 +1,10 @@
 [Unit]
 Description=MoCo runtime service
-After=network.target
+After=syslog.target
 
 [Service]
 Type=simple
-ExecStart=@BINDIR@/moco-start.sh -c @SYSCONFDIR@/moco/gpio.conf
+ExecStart=/usr/libexec/moco-service-start.sh -c /etc/moco/gpio.conf
 
 [Install]
 WantedBy=multi-user.target
