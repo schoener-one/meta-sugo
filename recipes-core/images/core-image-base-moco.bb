@@ -22,7 +22,6 @@ IMAGE_INSTALL_append = " \
     boost \
     zeromq \
     userland \
-    wiringpi \
     protobuf \
     gtest \
     protobuf \
