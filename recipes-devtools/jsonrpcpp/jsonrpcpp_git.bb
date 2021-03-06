@@ -1,5 +1,5 @@
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=a4db87b14307e5b30ca767492370854a"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=e45879845a38d0d75364b02de8781883"
 
 SRC_URI = "git://github.com/badaix/jsonrpcpp.git;protocol=https"
 SRCREV = "${AUTOREV}"
