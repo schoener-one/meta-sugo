@@ -7,9 +7,13 @@ inherit core-image
 
 COMPATIBLE_MACHINE = "^rpi$"
 
+KERNEL_DEVICETREE += " \
+    overlays/enc28j60.dtbo \
+"
 #
 # Kernel configuration
-LINUX_KERNEL_TYPE = "preempt-rt"
+#LINUX_KERNEL_TYPE = "preempt-rt" - not used for meta-raspberry!
+#PREFERRED_PROVIDER_virtual/kernel ?= "linux-raspberrypi-rt"
 
 IMAGE_FEATURES += "splash ssh-server-openssh"
 IMAGE_INSTALL_append = " \

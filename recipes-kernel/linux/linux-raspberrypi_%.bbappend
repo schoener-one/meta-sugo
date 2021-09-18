@@ -5,11 +5,8 @@ SRC_URI += "\
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 KERNEL_DEVICETREE += " \
-    overlays/moco-gpio.dtbo \
     overlays/enc28j60.dtbo \
 "
 KERNEL_MODULE_AUTOLOAD += "i2c-dev"
-KERNEL_MODULE_PROBECONF += "i2c-dev"
+#KERNEL_MODULE_PROBECONF += "i2c-dev"
