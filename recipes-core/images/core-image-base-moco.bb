@@ -4,6 +4,7 @@ hardware (MoCo)."
 LICENSE = "CLOSED"
 
 inherit core-image
+require conf/moco-version.inc
 
 COMPATIBLE_MACHINE = "^rpi$"
 
@@ -34,4 +35,11 @@ IMAGE_INSTALL_append = " \
     moco-service \
 "
 
+fakeroot do_image() {
+    echo "MOCO_SYSTEM_VERSION:  ${MOCO_SYSTEM_VERSION}"
+    echo "# Moco system version" > ${IMAGE_ROOTFS}/version
+    echo "VERSION=${MOCO_SYSTEM_VERSION}" >>  ${IMAGE_ROOTFS}/version
+    echo "REVISION=${MOCO_BUILD_REVISION}" >>  ${IMAGE_ROOTFS}/version
+    chmod 0644 ${IMAGE_ROOTFS}/version
+}
 
