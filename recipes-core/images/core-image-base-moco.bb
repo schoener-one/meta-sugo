@@ -16,6 +16,13 @@ KERNEL_DEVICETREE += " \
 #LINUX_KERNEL_TYPE = "preempt-rt" - not used for meta-raspberry!
 #PREFERRED_PROVIDER_virtual/kernel ?= "linux-raspberrypi-rt"
 
+# Root password has to be set on image build!
+# If the image feature 'debug-tweaks' is set the root password
+# will be deactivated anyway!
+# Set unknown password as default!
+ROOT_PASSWORD ?= "moco"
+EXTRA_USERS_PARAMS += '${@bb.utils.contains("EXTRA_IMAGE_FEATURES", "debug-tweaks", "", "usermod -P ${ROOT_PASSWORD} root;", d)}'
+
 IMAGE_FEATURES += "splash ssh-server-openssh"
 IMAGE_INSTALL_append = " \
     i2c-tools \
