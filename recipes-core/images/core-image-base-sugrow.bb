@@ -1,5 +1,5 @@
 SUMMARY = "A console-only image that fully supports the target device \
-hardware (MoCo)."
+hardware (Sugrow)."
 
 LICENSE = "CLOSED"
 
@@ -19,7 +19,7 @@ KERNEL_DEVICETREE += " \
 # If the image feature 'debug-tweaks' is set the root password
 # will be deactivated anyway!
 # Set unknown password as default!
-ROOT_PASSWORD ?= "moco"
+ROOT_PASSWORD ?= "sugrow"
 EXTRA_USERS_PARAMS += " \
     usermod -P ${ROOT_PASSWORD} root \
     "
@@ -40,14 +40,14 @@ IMAGE_INSTALL_append = " \
     protobuf \
     jsonrpcpp \
     azmq \
-    moco-service \
+    sugrow-service \
 "
 
 fakeroot do_image() {
-    echo "MOCO_SYSTEM_VERSION:  ${MOCO_SYSTEM_VERSION}"
-    echo "# Moco system version" > ${IMAGE_ROOTFS}/version
-    echo "VERSION=${MOCO_SYSTEM_VERSION}" >>  ${IMAGE_ROOTFS}/version
-    echo "REVISION=${MOCO_BUILD_REVISION}" >>  ${IMAGE_ROOTFS}/version
+    echo "SUGROW_SYSTEM_VERSION:  ${SUGROW_SYSTEM_VERSION}"
+    echo "# Sugrow system version" > ${IMAGE_ROOTFS}/version
+    echo "VERSION=${SUGROW_SYSTEM_VERSION}" >>  ${IMAGE_ROOTFS}/version
+    echo "REVISION=${SUGROW_BUILD_REVISION}" >>  ${IMAGE_ROOTFS}/version
     chmod 0644 ${IMAGE_ROOTFS}/version
 }
 

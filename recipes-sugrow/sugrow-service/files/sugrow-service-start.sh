@@ -1,12 +1,12 @@
 #!/bin/sh
 # ******************************
-# Moco service start script
+# Sugrow service start script
 # 
-# Moco Project / Copyright 2020
+# Sugrow Project / Copyright 2020
 # ******************************
 
-GPIO_CONFIG=/etc/moco/gpio.conf
-GPIO_SETUP=/usr/bin/moco-gpio-setup.sh
+GPIO_CONFIG=/etc/sugrow/gpio.conf
+GPIO_SETUP=/usr/bin/sugrow-gpio-setup.sh
 
 while [ $# -gt 0 ]; do
     case $1 in

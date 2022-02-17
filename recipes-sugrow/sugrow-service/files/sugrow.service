@@ -1,0 +1,10 @@
+[Unit]
+Description=Sugrow runtime service
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart=/usr/libexec/sugrow-service-start.sh -c /etc/sugrow/gpio.conf
+
+[Install]
+WantedBy=multi-user.target
