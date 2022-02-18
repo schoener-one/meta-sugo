@@ -1,5 +1,5 @@
 SRC_URI += "\
-    file://sugrow-gpio-overlay.dts;subdir=git/arch/${ARCH}/boot/dts/overlays \
+    file://sugo-gpio-overlay.dts;subdir=git/arch/${ARCH}/boot/dts/overlays \
     file://enc28j60-overlay.dts;subdir=git/arch/${ARCH}/boot/dts/overlays \
 "
 

@@ -1,0 +1,10 @@
+[Unit]
+Description=sugo runtime service
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart=/usr/libexec/sugo-service-start.sh -c /etc/sugo/gpio.conf
+
+[Install]
+WantedBy=multi-user.target

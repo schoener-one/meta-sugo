@@ -1,12 +1,12 @@
 #!/bin/sh
 # ******************************
-# Sugrow service start script
+# sugo service start script
 # 
-# Sugrow Project / Copyright 2020
+# sugo Project / Copyright 2020
 # ******************************
 
-GPIO_CONFIG=/etc/sugrow/gpio.conf
-GPIO_SETUP=/usr/bin/sugrow-gpio-setup.sh
+GPIO_CONFIG=/etc/sugo/gpio.conf
+GPIO_SETUP=/usr/bin/sugo-gpio-setup.sh
 
 while [ $# -gt 0 ]; do
     case $1 in
