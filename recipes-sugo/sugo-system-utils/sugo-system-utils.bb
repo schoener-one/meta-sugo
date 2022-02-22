@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 FILESEXTRAPATHS_prepend := "${THISDIR}/conf:"
 
 SRC_URI = "\
-    git://bitbucket.org/schoenerone/sugo-system-utils.git;protocol=ssh;branch=master;user=git\
+    git://bitbucket.org/schoenerone/sugrow-system-utils.git;protocol=ssh;branch=master;user=git\
     file://gpio.conf\
     "
 SRCREV = "${AUTOREV}"

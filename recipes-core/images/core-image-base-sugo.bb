@@ -4,16 +4,14 @@ hardware (sugo)."
 LICENSE = "CLOSED"
 
 inherit core-image
-require conf/moco-version.inc
+require conf/sugo-version.inc
 inherit extrausers
 
 COMPATIBLE_MACHINE = "^rpi$"
 
 KERNEL_DEVICETREE += " \
-    overlays/enc28j60.dtbo \
+    ${@bb.utils.contains('MACHINE', 'raspberrypi-cm3', 'overlays/enc28j60.dtbo', '' ,d)} \
 "
-
-# TODO Add linux-rt kernel configuration
 
 # Root password has to be set on image build!
 # If the image feature 'debug-tweaks' is set the root password
@@ -40,7 +38,7 @@ IMAGE_INSTALL_append = " \
     protobuf \
     jsonrpcpp \
     azmq \
-    sugo-service \
+    ${@bb.utils.contains('SUGO_BUILD_SYSTEM_SERVICE', '1', 'sugo-service', '' ,d)} \
 "
 
 fakeroot do_image() {
