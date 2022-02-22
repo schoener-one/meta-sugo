@@ -34,7 +34,7 @@ IMAGE_INSTALL_append = " \
     zeromq \
     userland \
     protobuf \
-    gtest \
+    googletest \
     protobuf \
     jsonrpcpp \
     azmq \
