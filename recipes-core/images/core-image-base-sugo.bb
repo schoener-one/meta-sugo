@@ -9,9 +9,9 @@ inherit extrausers
 
 COMPATIBLE_MACHINE = "^rpi$"
 
-KERNEL_DEVICETREE += " \
-    ${@bb.utils.contains('MACHINE', 'raspberrypi-cm3', 'overlays/enc28j60.dtbo', '' ,d)} \
-"
+# KERNEL_DEVICETREE += " \
+#     ${@bb.utils.contains('MACHINE', 'raspberrypi-cm3', 'overlays/enc28j60.dtbo', '' ,d)} \
+# "
 
 # Root password has to be set on image build!
 # If the image feature 'debug-tweaks' is set the root password
