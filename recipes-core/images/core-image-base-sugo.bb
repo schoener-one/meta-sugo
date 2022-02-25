@@ -8,6 +8,8 @@ require conf/sugo-version.inc
 inherit extrausers
 
 COMPATIBLE_MACHINE = "^rpi$"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-raspberrypi-rt"
+PREFERRED_VERSION_linux-raspberrypi ?= "4.19.%"
 
 # KERNEL_DEVICETREE += " \
 #     ${@bb.utils.contains('MACHINE', 'raspberrypi-cm3', 'overlays/enc28j60.dtbo', '' ,d)} \
@@ -38,6 +40,7 @@ IMAGE_INSTALL_append = " \
     protobuf \
     jsonrpcpp \
     azmq \
+    rt-tests \
     ${@bb.utils.contains('SUGO_BUILD_SYSTEM_SERVICE', '1', 'sugo-service', '' ,d)} \
 "
 
