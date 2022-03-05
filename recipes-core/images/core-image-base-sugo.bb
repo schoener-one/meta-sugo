@@ -41,6 +41,8 @@ IMAGE_INSTALL_append = " \
     jsonrpcpp \
     azmq \
     rt-tests \
+    libgpiod \
+    libwsadhat \
     ${@bb.utils.contains('SUGO_BUILD_SYSTEM_SERVICE', '1', 'sugo-service', '' ,d)} \
 "
 
