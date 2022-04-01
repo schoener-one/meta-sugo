@@ -9,6 +9,9 @@ add_compile_definitions(RPI)
 
 add_library(wsadhat SHARED
     ${PROJECT_DRIVER_DIR}/ADS1263.c
+    ${PROJECT_CONFIG_DIR}/DEV_Config.c
+    ${PROJECT_CONFIG_DIR}/RPI_sysfs_gpio.c
+    ${PROJECT_CONFIG_DIR}/dev_hardware_SPI.c
 )
 target_compile_options(wsadhat PRIVATE
     -Wall
@@ -25,14 +28,12 @@ set(LIB_HEADERS
     ${PROJECT_CONFIG_DIR}/Debug.h
     ${PROJECT_CONFIG_DIR}/RPI_sysfs_gpio.h
     ${PROJECT_CONFIG_DIR}/dev_hardware_SPI.h
-    ${PROJECT_CONFIG_DIR}/sysfs_gpio.h
-    ${PROJECT_CONFIG_DIR}/sysfs_software_spi.h
 )
 set_target_properties(
     wsadhat PROPERTIES
     SOVERSION 1.0
     VERSION 1.0
-    PUBLIC_HEADER ${LIB_HEADERS}
+    PUBLIC_HEADER "${LIB_HEADERS}"
 )
 install(TARGETS wsadhat
     EXPORT WaveshareHighPrecisionAdHat
