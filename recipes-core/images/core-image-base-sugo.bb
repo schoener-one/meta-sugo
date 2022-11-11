@@ -45,6 +45,7 @@ IMAGE_INSTALL_append = " \
     libgpiod-tools \
     libwsadhat \
     ${@bb.utils.contains('SUGO_BUILD_SYSTEM_SERVICE', '1', 'sugo-service', '' ,d)} \
+    mongoose \
 "
 
 fakeroot do_image() {
