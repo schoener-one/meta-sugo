@@ -5,7 +5,7 @@ SRC_URI = "git://github.com/zeromq/azmq.git;protocol=https"
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV = "7da2fd0a1b2bd4e6f50ccd17d54579e6084ef1f7"
 
 S = "${WORKDIR}/git"
 
