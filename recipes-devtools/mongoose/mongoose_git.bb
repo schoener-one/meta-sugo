@@ -8,7 +8,7 @@ SRCREV = "0a265e79a67d7bfcdca27f2ccb98ccb474677ec6"
 
 S = "${WORKDIR}/git"
 
-EXTRA_OEMAKE_append = " PREFIX=/usr SSL="
+EXTRA_OEMAKE:append = " PREFIX=/usr SSL="
 
 do_compile() {
     oe_runmake -e linux-libs

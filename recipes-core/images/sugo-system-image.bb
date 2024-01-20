@@ -42,7 +42,6 @@ IMAGE_INSTALL:append = " \
     rt-tests \
     libgpiod \
     libgpiod-tools \
-    libwsadhat \
     ${@bb.utils.contains('SUGO_BUILD_SYSTEM_SERVICE', '1', 'sugo-service', '' ,d)} \
     mongoose \
 "

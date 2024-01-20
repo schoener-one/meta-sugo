@@ -9,7 +9,7 @@ S = "${WORKDIR}/git"
 inherit cmake
 
 # Specify any options you want to pass to cmake using EXTRA_OECMAKE:
-EXTRA_OECMAKE += "-DBUILD_TESTS=OFF -DBUILD_EXAMPLE=OFF"
+EXTRA_OECMAKE:append = " -DBUILD_TESTS=OFF -DBUILD_EXAMPLE=OFF"
 
 INSANE_SKIP:${PN}-dev += "dev-elf"
 
