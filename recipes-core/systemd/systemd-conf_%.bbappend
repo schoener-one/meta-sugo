@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI += "file://eth.network;md5=9287ae403dd2443b77547e9bcb41384c"
 
 do_install() {
@@ -11,7 +11,7 @@ do_install() {
     echo "LANG=en_GB.utf8" > ${D}/${sysconfdir}/locale.conf
 }
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${sysconfdir}/systemd/network/eth.network\
     ${sysconfdir}/locale.conf\
     ${sysconfdir}/localtime\

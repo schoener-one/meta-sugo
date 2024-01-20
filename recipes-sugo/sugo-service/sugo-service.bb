@@ -1,18 +1,17 @@
-SUMMARY = "sugo system service"
+SUMMARY = "Sugo system service"
 SECTION = "base/shell"
-LICENSE = "CLOSED"
+LICENSE = "GPL-3.0-only"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-3.0-only;md5=c79ff39f19dfec6d293b95dea7b07891"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI = "\
     file://sugo.service\
     file://sugo-service-start.sh\
 "
 
-RDEPENDS_${PN} += "sugo-system-utils"
+inherit systemd features_check
 
-inherit systemd
-
-SYSTEMD_SERVICE_${PN} = "sugo.service"
+SYSTEMD_SERVICE:${PN} = "sugo.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 
 do_install() {
@@ -23,7 +22,7 @@ do_install() {
     install -m 0644 ${WORKDIR}/sugo.service ${D}${systemd_system_unitdir}/sugo.service
 }
 
-FILES_${PN} = "\
+FILES:${PN} = "\
     ${libexecdir}/sugo-service-start.sh \
     ${systemd_system_unitdir}/sugo.service \
 "

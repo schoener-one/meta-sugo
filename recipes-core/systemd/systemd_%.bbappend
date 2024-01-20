@@ -1,6 +1,6 @@
-PACKAGECONFIG_append = "networkd resolved timesyncd"
+PACKAGECONFIG:append = "networkd resolved timesyncd"
 
-do_install_append() {
+do_install:append() {
     # systemd-networkd 
     ln -sf ../systemd-networkd.service ${D}${systemd_unitdir}/system/dbus-org.freedesktop.network1.service
     ln -sf ../systemd-networkd.service ${D}${systemd_unitdir}/system/multi-user.target.wants/systemd-networkd.service

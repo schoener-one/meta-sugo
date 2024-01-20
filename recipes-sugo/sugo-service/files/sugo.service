@@ -1,5 +1,5 @@
 [Unit]
-Description=sugo runtime service
+Description=Sugo runtime service
 After=syslog.target
 
 [Service]

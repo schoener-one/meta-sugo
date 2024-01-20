@@ -1,31 +1,30 @@
 SUMMARY = "A console-only image that fully supports the target device \
-hardware (sugo)."
+hardware (Sugo)."
+LICENSE = "GPL-3.0-only"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR};md5=c79ff39f19dfec6d293b95dea7b07891"
 
-LICENSE = "CLOSED"
-
-inherit core-image
+inherit core-image extrausers
 require conf/sugo-version.inc
-inherit extrausers
 
 COMPATIBLE_MACHINE = "^rpi$"
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-raspberrypi-rt"
-PREFERRED_VERSION_linux-raspberrypi ?= "4.19.%"
-
-# KERNEL_DEVICETREE += " \
-#     ${@bb.utils.contains('MACHINE', 'raspberrypi-cm3', 'overlays/enc28j60.dtbo', '' ,d)} \
-# "
+# Preempt-rt patch not supported any more in kirkstone release!
+# PREFERRED_PROVIDER_virtual/kernel ?= "linux-raspberrypi-rt"
 
 # Root password has to be set on image build!
 # If the image feature 'debug-tweaks' is set the root password
 # will be deactivated anyway!
 # Set unknown password as default!
 ROOT_PASSWORD ?= "sugo"
+# SERVICE_USER_PASSWORD ?= "sugo"
+# SERVICE_USER ?= "sugo"
 EXTRA_USERS_PARAMS += " \
-    usermod -P ${ROOT_PASSWORD} root \
-    "
+    usermod -p '$(openssl passwd '${ROOT_PASSWORD}')' root; \
+"
+# groupadd '${SERVICE_USER}'; 
+# useradd -p '${SERVICE_USER_PASSWORD}' -g '${SERVICE_USER}'; 
 
 IMAGE_FEATURES += "splash ssh-server-openssh"
-IMAGE_INSTALL_append = " \
+IMAGE_INSTALL:append = " \
     i2c-tools \
     rpio \
     rpi-gpio \
@@ -50,7 +49,7 @@ IMAGE_INSTALL_append = " \
 
 fakeroot do_image() {
     echo "SUGO_SYSTEM_VERSION:  ${SUGO_SYSTEM_VERSION}"
-    echo "# sugo system version" > ${IMAGE_ROOTFS}/version
+    echo "# Sugo system version" > ${IMAGE_ROOTFS}/version
     echo "VERSION=${SUGO_SYSTEM_VERSION}" >>  ${IMAGE_ROOTFS}/version
     echo "REVISION=${SUGO_BUILD_REVISION}" >>  ${IMAGE_ROOTFS}/version
     chmod 0644 ${IMAGE_ROOTFS}/version

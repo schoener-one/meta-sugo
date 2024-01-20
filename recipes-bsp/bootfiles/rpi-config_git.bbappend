@@ -1,4 +1,4 @@
-do_deploy_append() {
+do_deploy:append() {
   #NOTE The enc28J60 driver uses gpio pin 25 as interrupt line!
   #echo "dtoverlay=enc28j60" >>${DEPLOYDIR}/bootfiles/config.txt
   # ip - Pin als Eingang setzen

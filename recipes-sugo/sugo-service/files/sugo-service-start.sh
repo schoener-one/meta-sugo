@@ -1,8 +1,8 @@
 #!/bin/sh
 # ******************************
-# sugo service start script
+# Sugo service start script
 # 
-# sugo Project / Copyright 2020
+# Sugo Project / Copyright 2020
 # ******************************
 
 GPIO_CONFIG=/etc/sugo/gpio.conf
