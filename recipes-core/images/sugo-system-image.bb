@@ -7,8 +7,6 @@ inherit core-image extrausers
 require conf/sugo-version.inc
 
 COMPATIBLE_MACHINE = "^rpi$"
-# Preempt-rt patch not supported any more in kirkstone release!
-# PREFERRED_PROVIDER_virtual/kernel ?= "linux-raspberrypi-rt"
 
 # Root password has to be set on image build!
 # If the image feature 'debug-tweaks' is set the root password
@@ -43,7 +41,7 @@ IMAGE_INSTALL:append = " \
     libgpiod \
     libgpiod-tools \
     ${@bb.utils.contains('SUGO_BUILD_SYSTEM_SERVICE', '1', 'sugo-service', '' ,d)} \
-    mongoose \
+    mongooselib \
 "
 
 fakeroot do_image() {
